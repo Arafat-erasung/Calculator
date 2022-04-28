@@ -7,9 +7,9 @@ class Calculator {
 
 
     clearAll = () => {
-        this.prevOperand = ""
-        this.currentOperand = ""
-        this.operation = undefined
+        this.prevOperand = ''
+        this.currentOperand = ''
+        this.operation = ''
     }
 
     delete = () => {
@@ -17,13 +17,13 @@ class Calculator {
     }
 
     appendNumber = number => {
-        if(number === "." && this.currentOperand.includes('.')) return
+        if(number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
     selectOperation = operation => {
-        if(this.currentOperand === "") return
-        if(this.prevOperand !== "") {
+        if(this.currentOperand === '') return
+        if(this.prevOperand !== '') {
             this.calculate()
         }
         this.operation = operation
@@ -37,23 +37,23 @@ class Calculator {
         const current = parseFloat(this.currentOperand)
         if(isNaN(previous) || isNaN(current)) return
             switch(this.operation){
-                case "+":
+                case '+':
                     result = previous + current
                 break
-                case "-":
+                case '-':
                     result = previous - current
                 break
-                case "x":
+                case 'x':
                     result = previous * current
                 break
-                case "÷":
+                case '÷':
                     result = previous / current
                 break
                 default:
                     return
             }
             this.currentOperand = result
-            this.operation = undefined
+            this.operation = ''
             this.prevOperand = ''
 
     }
